@@ -1,0 +1,46 @@
+version: '3.8'
+services:
+  dev-db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: nest_krane
+    ports:
+      - 5432:5432
+    networks:
+      - krane
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: always
+  test-db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: nest_krane
+    ports:
+      - 5432:5432
+    networks:
+      - krane
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: always
+  prod-db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: nest_krane
+    ports:
+      - 5432:5432
+    networks:
+      - krane
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: always
+networks:
+  krane:
